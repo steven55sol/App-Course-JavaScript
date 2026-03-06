@@ -16,6 +16,11 @@ function validar(e){
         return;
     }
 
+    if(e.target.id === 'email' && !validarEmail(e.target.value)){
+        MostrarAlerta('El email no es valido', e.target.parentElement);
+        return;
+    }
+
     limpiarAlerta(e.target.parentElement)
 }
 
@@ -45,4 +50,12 @@ function limpiarAlerta(referencia){
         alerta.remove(); //Removiendo alerta
     }
 
+}
+
+function validarEmail(email){
+    
+    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const resultado = regex.test(email);
+
+    return resultado;
 }

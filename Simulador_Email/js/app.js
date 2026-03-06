@@ -13,14 +13,17 @@ $Mensaje.addEventListener('blur', validar);
 function validar(e){
     if(e.target.value.trim() === ''){
         MostrarAlerta(`El campo ${e.target.id} es obligatorio`, e.target.parentElement);
+        return;
     }
+
+    limpiarAlerta(e.target.parentElement)
 }
 
 //Creando Alertas
 
 function MostrarAlerta(mensaje, referencia){
     //Limpiando alertas
-    limpiarAlertas(referencia);
+    limpiarAlerta(referencia);
 
     //Creando Alerta HTML
     const error = document.createElement('P');
@@ -32,7 +35,7 @@ function MostrarAlerta(mensaje, referencia){
 }
 
 
-function limpiarAlertas(referencia){
+function limpiarAlerta(referencia){
     
     //Direccion de la alerta
     const alerta = referencia.querySelector('.error');

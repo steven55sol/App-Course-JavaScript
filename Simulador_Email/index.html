@@ -7,21 +7,27 @@
     <title>Simulador Email</title>
 </head>
 <body>
-    <h1>Formulario Email</h1>
-    <form action="">
-        <section>
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="ej: email@gmail.com">
-        </section>
-        <section>
-            <label for="asunto">Asunto</label>
-            <input type="text" id="asunto" placeholder="Asunto Email">
-        </section>
-        <section>
-            <label for="Mensaje"></label>
-            <textarea name="Mensaje" id="mensaje" placeholder="Mensaje Email"></textarea>
-        </section>
-    </form>
+    <main class="main">
+        <h1>Formulario Email</h1>
+        <form class="container" action="">
+            <section>
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="ej: email@gmail.com">
+            </section>
+            <section>
+                <label for="asunto">Asunto:</label>
+                <input type="text" id="asunto" placeholder="Asunto Email">
+            </section>
+            <section>
+                <label for="mensaje">Mensaje:</label>
+                <textarea name="mensaje" id="mensaje" placeholder="Mensaje Email"></textarea>
+            </section>
+            <section class="section-btns">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Reset">
+            </section>
+        </form>
+    </main>
 
 
     <!-- Scripts -->

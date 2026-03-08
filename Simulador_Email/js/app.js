@@ -2,6 +2,7 @@ const $Email = document.querySelector('#email');
 const $Asunto = document.querySelector('#asunto');
 const $Mensaje = document.querySelector('#mensaje');
 
+
 // Asignando eventos
 
 $Email.addEventListener('blur', validar);
@@ -21,7 +22,8 @@ function validar(e){
         return;
     }
 
-    limpiarAlerta(e.target.parentElement)
+    limpiarAlerta(e.target.parentElement);
+
 }
 
 //Creando Alertas

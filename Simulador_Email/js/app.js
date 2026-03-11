@@ -1,19 +1,28 @@
 const $Email = document.querySelector('#email');
 const $Asunto = document.querySelector('#asunto');
 const $Mensaje = document.querySelector('#mensaje');
-
+const $btnSubmit = document.querySelector('#btn-submit');
 
 // Asignando eventos
 
-$Email.addEventListener('blur', validar);
-$Asunto.addEventListener('blur', validar);
-$Mensaje.addEventListener('blur', validar);
+$Email.addEventListener('input', validar);
+$Asunto.addEventListener('input', validar);
+$Mensaje.addEventListener('input', validar);
+
+const email = {
+    email: "",
+    asunto: "",
+    mensaje: ""
+}
+
 
 //Validando campos
 
 function validar(e){
     if(e.target.value.trim() === ''){
         MostrarAlerta(`El campo ${e.target.id} es obligatorio`, e.target.parentElement);
+        email[e.target.id] = '';
+        comprobarEmail();
         return;
     }
 
@@ -23,6 +32,11 @@ function validar(e){
     }
 
     limpiarAlerta(e.target.parentElement);
+
+    //Agregando datos al objeto email
+    email[e.target.id] = e.target.value;
+    
+    comprobarEmail();
 
 }
 
@@ -61,3 +75,16 @@ function validarEmail(email){
 
     return resultado;
 }
+
+function comprobarEmail(){
+
+    if(Object.values(email).includes("")){
+        $btnSubmit.style.opacity = 0.5;
+        $btnSubmit.disabled = true;
+    }else{
+        $btnSubmit.style.opacity = 1;
+        $btnSubmit.disabled = false;
+    }
+}
+
+comprobarEmail();
